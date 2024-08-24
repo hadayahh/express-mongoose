@@ -13,12 +13,8 @@ router.get("/", async (req, res) => {
 });
 
 // Get ONE SUBSCRIBER
-router.get("/:id", (req, res) => {
-  try {
-    res.send(req.params.id);
-  } catch (err) {
-    res.json({ Error: "Unable to Retrieve" });
-  }
+router.get("/:id", getSubscriber, (req, res) => {
+  res.send(res.subscriber.name);
 });
 
 // CREATE A SUBSCRIBER
@@ -44,13 +40,15 @@ router.delete(":id", (req, res) => {});
 async function getSubscriber(req, res, next) {
   let subscriber;
   try {
-    subscriber = await Subscriber.findById(req.body.params.id);
+    subscriber = await Subscriber.findById(req.params.id);
     if (subscriber == null) {
       return res.status(404).json({ Message: "Cannot find subscriber" });
     }
   } catch (err) {
     return res.status(500).json({ Message: err.message });
   }
+  res.subscriber = subscriber;
+  next();
 }
 
 module.exports = router;
