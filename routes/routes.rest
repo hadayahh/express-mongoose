@@ -1,8 +1,5 @@
-POST http://localhost:3000/subscribers/
-Content-Type: application/json
 
-{
-    "name": "hadi",
-    "subscribedToChannel": "web dev"
-}
+GET http://localhost:3000/subscribers/
 
+###
+GET http://localhost:3000/subscribers/66c8d4452124b31d9fc297b
