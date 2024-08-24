@@ -2,4 +2,14 @@
 GET http://localhost:3000/subscribers/
 
 ###
-GET http://localhost:3000/subscribers/66c8d4452124b31d9fc297b
+GET http://localhost:3000/subscribers/66c8d4452124b31d9fc297bd
+###
+DELETE http://localhost:3000/subscribers/66c8d4452124b31d9fc297bd
+###
+PATCH http://localhost:3000/subscribers/66c25c23549fc347620c9465
+Content-Type: application/json
+
+{
+    "name": "Andrea Provvido",
+    "subscribedToChannel": "andypro"
+}
